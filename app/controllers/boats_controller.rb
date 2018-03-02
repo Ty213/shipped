@@ -8,11 +8,10 @@ class BoatsController < ApplicationController
   end
 
   def create
-    # @user = User.find(current_user.id)
     @boat = Boat.new(boat_params)
     if @boat.save
       flash[:message] = 'Your boat was created successfully'
-      redirect_to '/boats/index'
+      redirect_to '/boats/'
     else
       flash[:message] = 'try again'
       render '/boats/new'
@@ -20,6 +19,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @boat = Boat.find(params[:id])
   end
 
   def update
