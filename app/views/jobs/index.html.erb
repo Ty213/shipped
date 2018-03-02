@@ -4,11 +4,12 @@
 
 
 <% @jobs.each do |t| %>
-    <div><%= t.name %> <div>
+    <div><a href="/jobs/<%= t.id %>"<%= t.name %></a></div>
     <div><%= t.description %></div>
     <div><%= t.cont_needed %></div>
     <div><%= t.budget %></div>
     <div><%= t.origin %></div>
     <div><%= t.user_id %></div>
+    t.user_id
 
     <% end %>
