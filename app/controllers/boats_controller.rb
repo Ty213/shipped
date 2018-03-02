@@ -1,11 +1,22 @@
 class BoatsController < ApplicationController
   def index
-  end
-
-  def create
+    @boats = Boat.all
   end
 
   def new
+    @boat = Boat.new
+  end
+
+  def create
+    @user = User.find(current_user.id)
+    @boat = Boat.new(boat_params)
+    if @boat.save
+      flash[:message] = 'Your boat was created successfully'
+      redirect_to '/boats/index'
+    else
+      flash[:message] = 'try again'
+      render '/boats/new'
+    end
   end
 
   def show
@@ -19,4 +30,14 @@ class BoatsController < ApplicationController
 
   def destroy
   end
+
+  private
+  def boat_params
+    params.require(:boat).permit(:name, :max_cont, :location, :cost, :user_id)
+  end
+
+  def user_params
+    params.require(:user).permit(:id)
+  end
+
 end
