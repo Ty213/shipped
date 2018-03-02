@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @jobs = Job.find(params[:id])
   end
 
   def edit
