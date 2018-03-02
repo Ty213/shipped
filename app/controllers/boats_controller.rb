@@ -10,11 +10,11 @@ class BoatsController < ApplicationController
   def create
     @boat = Boat.new(boat_params)
     if @boat.save
-      flash[:message] = 'Your boat was created successfully'
+      flash[:notice] = 'Your boat was created successfully'
       redirect_to '/boats/'
     else
-      flash[:message] = 'try again'
-      render '/boats/new'
+      flash[:alert] = 'try again'
+      redirect_to '/boats/new'
     end
   end
 
