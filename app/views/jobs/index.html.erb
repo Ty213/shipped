@@ -4,11 +4,11 @@
 
 
 <% @jobs.each do |t| %>
-    <div><%= t.string "name" %></div>
-    <div><%= t.string "description" %></div>
-    <div><%= t.integer "cont_needed" %></div>
-    <div><%= t.integer "budget" %></div>
-    <div><%= t.string "origin" %></div>
-    <div><%= t.string "destination" %></div>
+    <div><%= t.name %> <div>
+    <div><%= t.description %></div>
+    <div><%= t.cont_needed %></div>
+    <div><%= t.budget %></div>
+    <div><%= t.origin %></div>
+    <div><%= t.user_id %></div>
 
     <% end %>
