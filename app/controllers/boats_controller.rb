@@ -8,7 +8,7 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @user = User.find(current_user.id)
+    # @user = User.find(current_user.id)
     @boat = Boat.new(boat_params)
     if @boat.save
       flash[:message] = 'Your boat was created successfully'
@@ -37,7 +37,7 @@ class BoatsController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:id)
+    params.require(:user).permit(current_user.id)
   end
 
 end

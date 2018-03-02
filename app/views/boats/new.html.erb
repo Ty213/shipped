@@ -2,8 +2,10 @@
 <p>Find me in app/views/boats/new.html.erb</p>
 
 
+<%= current_user.id %>
+
 <%= form_for @boat do |f| %>
-	<div><%= f.text_field :user_id %></div>
+	<div><%= f.hidden_field :user_id, :value => current_user.id %></div>
 	<div>Name:<%= f.text_field :name %></div>
 	<div>Maximum Containers:<%= f.text_field :max_cont %></div>
 	<div>Location:<%= f.text_field :location %></div>
