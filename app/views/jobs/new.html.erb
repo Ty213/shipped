@@ -1,2 +1,19 @@
 <h1>Jobs#new</h1>
 <p>Find me in app/views/jobs/new.html.erb</p>
+
+<%= form_for @job do |f| %>
+<p>Name:</p>
+  <%= f.text_field(:name) %>
+  <p>Description:</p>
+  <%= f.text_field(:description) %>
+  <p>Containers needed:</p>
+  <%= f.text_field(:cont_needed) %>
+  <p>Budget:</p>
+  <%= f.text_field(:budget) %>
+  <p>Origin</p>
+    <%= f.text_field(:origin) %>
+    <p>Destination</p>
+      <%= f.text_field(:destination) %>
+     <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit("New Job") %>
+<% end %>
