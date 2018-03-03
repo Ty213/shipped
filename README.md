@@ -5,7 +5,9 @@ Rails application for shippers to help them organize all of the ships in their f
 ## Getting Started
 
 1. clone the repository 
--- run the following commands --
+
+ -- run the following commands --
+ 
 2. bundle install
 3. rails db:migrate
 4. rails server
