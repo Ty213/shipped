@@ -1,24 +1,29 @@
-# README
+# Shipped
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails application for shippers to help them organize all of the ships in their fleet.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+1. clone the repository 
 
-* System dependencies
+ -- run the following commands --
+ 
+2. bundle install
+3. rails db:migrate
+4. rails server
 
-* Configuration
+## Built With
 
-* Database creation
+* [Ruby on Rails](http://rubyonrails.org/) 
+* [Devise](https://github.com/plataformatec/devise) - Authentication
+* [Paperclip](https://github.com/thoughtbot/paperclip) - File attachment
 
-* Database initialization
 
-* How to run the test suite
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+* **Ty Thompson**  - [ty213](https://github.com/ty213)
+* **Andrew Ciukurescu**  - [atc66](https://github.com/atc66)
+* **Andre Harris**  - [aharris4723](https://github.com/aharris4723)
+* **Lee Barber**  - [lee-barber](https://github.com/lee-barber)
 
-* Deployment instructions
 
-* ...
