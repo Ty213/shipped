@@ -1,1 +1,9 @@
 <%= @user.email %>
+<h1>Jobs</h1>
+<% @user.jobs.each do |j| %>
+<p><%= j.name %></p>
+<% end %>
+<h1>Boats</h1>
+<% @user.boats.each do |b| %>
+<p><%= b.name %></p>
+<% end %>
