@@ -7,4 +7,21 @@ in
 
 <div><%= @job.name %></div>
 <div><%= @job.description %></div>
+<div><%= @job.budget %></div>
+<div><%= @job.cont_needed %></div>
 <hr>
+
+
+
+
+
+<h2>Assign a boat to this job</h2>
+<!-- filters boats by cost and displays -->
+<% @boats.each do |b| %>
+    <% if @job.budget >= b.cost.to_i %>
+        <%= b.cost.to_i %>
+        <p><%= b.name %></p>
+        <%= image_tag b.avatar.url(:medium) %>
+        <p>Cost: <%= b.cost %></p>
+    <% end %>
+<% end %>
