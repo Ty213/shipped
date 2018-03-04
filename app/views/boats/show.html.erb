@@ -6,3 +6,15 @@
 
 <%= link_to "Delete", boat_path, method: :delete %>
 <%= link_to 'Edit', edit_boat_path(@boat) %>
+<hr />
+
+
+<h2>Assign a job to this boat</h2>
+<!-- filters jobs by budget and displays -->
+<% @jobs.each do |j| %>
+    <% if @boat.cost.to_i <= j.budget %>
+        <h3><%= j.name %></h3>
+        <p><%= j.description %></p>
+        <p><%= j.budget %></p>
+    <% end %>
+<% end %>
