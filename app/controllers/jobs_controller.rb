@@ -3,7 +3,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.name = @job.name.capitalize
 		if @job.save
-			redirect_to root_path
+			redirect_to '/jobs'
 		else
 			render new_job_path
 		end
