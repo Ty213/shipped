@@ -1,15 +1,18 @@
 <h1>Your Profile</h1>
-<h2>Email:</h2><%= @user.email %>
+
+<h2>Email:</h2>
+<%= @user.email %>
+
 <h2>Jobs:</h2>
 <div><% @user.jobs.each do |j| %>
-<p><%= j.name %></p>
+	<div><a href="/jobs/<%= j.id %>"><%= j.name %></a></div>
 <% end %>
+
 <h2>Boats:</h2>
 <% @user.boats.each do |b| %>
-<p><%= b.name %></p>
+	<div><a href="/boats/<%= b.id %>"><%= b.name %></a></div>
 <% end %>
 
 <p>Edit User:</p>
-
-<%= link_to 'Edit', edit_user_registration_path(@user) %>
+<%= link_to 'Edit', edit_user_registration_path(@user) %> | 	
 <%= link_to "Delete", user_registration_path, method: :delete %>
