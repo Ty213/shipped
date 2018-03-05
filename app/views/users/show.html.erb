@@ -13,6 +13,6 @@
 	<div><a href="/boats/<%= b.id %>"><%= b.name %></a></div>
 <% end %>
 
-<p>Edit User:</p>
+<h2>Edit User:</h2>
 <%= link_to 'Edit', edit_user_registration_path(@user) %> | 	
 <%= link_to "Delete", user_registration_path, method: :delete %>
