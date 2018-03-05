@@ -4,4 +4,5 @@ class Job < ApplicationRecord
 	validates :description, length: { minimum: 20 }
 	belongs_to :user
 	has_and_belongs_to_many :boats
+	
 end
