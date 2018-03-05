@@ -10,12 +10,13 @@
 <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
 
+
 </head>
 
 <body>
   <h1 id="headline">SHIPPD</h1>
 
-  <nav class="navbar">
+  
   <% if logged_in? %>
     <ul class="navbar__list">
       <li class="navbar__item"><%= link_to "Profile", current_user %></a>
@@ -28,7 +29,7 @@
   <% end %>
 
   <% if !logged_in? %>
-    <ul class="navbar__list">
+    <ul class="navbar__list" id="sign_in">
       <li class="navbar__item"><a href="/users/sign_in">Home</li></a>
       <li class="navbar__item"><a href="/users/sign_in" >Sign In</li></a>
       <li class="navbar__item"><a href="/users/sign_up" >Sign Up</li></a>
@@ -43,7 +44,5 @@
 
 
     <%= yield %>
-    <p><strong>Reach Us:</strong>blah blah blah@yahoo.com</p>
-  </body>
-
+    <p><strong>Reach Us:</strong>blah blah  
 </html>
