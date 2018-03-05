@@ -3,17 +3,18 @@
 <head>
   <title>Shipped</title>
   <%= csrf_meta_tags %>
-
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
+
 
 </head>
 
 <body>
   <h1 id="headline">SHIPPD</h1>
+
 
   <% if logged_in? %>
   <nav class="navbar">
@@ -42,5 +43,6 @@
     <%= yield %>
     <p class = 'contact'><strong>Contact Us: </strong><a href="mailto:contact@weshippdit.com">  contact@weshippdit.com</p>
   </body>
+
 
 </html>

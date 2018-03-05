@@ -1,29 +1,24 @@
-<h1>Boats#show</h1>
-<p>Find me in app/views/boats/show.html.erb</p>
 
 <div><%= @boat.name %></div>
 <div><%= image_tag @boat.avatar.url(:large) %></div>
 
-<h2>Assign a job to this boat</h2>
-<!-- filters jobs by budget and displays -->
-<% @jobs.each do |j| %>
-    <% if @boat.cost.to_i <= j.budget %>
-        <h3><%= j.name %></h3>
-        <p><%= j.description %></p>
-        <p><%= j.budget %></p>
-
 <%if logged_in? &&  @boat.user_id == current_user.id %>
-    <%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |f| %>
-		    <%= hidden_field_tag "id",  j.id %>
-            <%= hidden_field_tag "boatid", @boat.id %>
-		    <%= f.submit(value = "Assign") %>
+    <%= link_to "Change Specs of Boat", edit_boat_path(@boat), method: :get %> |
+    <%= link_to "Remove Boat from Fleet", boat_path, method: :delete %>
+    
+    <h2>Assign a job to this boat</h2>
+    <!-- filters jobs by budget and displays -->
+    <% @jobs.each do |j| %>
+        <% if @boat.cost.to_i <= j.budget %>
+            <h3><%= j.name %></h3>
+            <p><%= j.description %></p>
+            <p><%= j.budget %></p>
+            
+            <%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |f| %>
+    		    <%= hidden_field_tag "id",  j.id %>
+                <%= hidden_field_tag "boatid", @boat.id %>
+    		    <%= f.submit(value = "Assign") %>
             <% end %>
         <% end %>
     <% end %>
 <% end %>
-
-<%if logged_in? &&  @boat.user_id == current_user.id %>
-			<%= link_to "Edit", edit_boat_path(@boat), method: :get %> |
-			<%= link_to "Delete", boat_path, method: :delete %>
-		</div>
-	<% end %>
