@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shipped</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Shipped</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> 
-
 <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body>
-    <h1 id="headline">SHIPPD</h1>
+<body>
+  <h1 id="headline">SHIPPD</h1>
 
   <nav class="navbar">
-    <% if logged_in? %>
+  <% if logged_in? %>
     <ul class="navbar__list">
       <li class="navbar__item"><%= link_to "Profile", current_user %></a>
-      <li class="navbar__item"><a href="/">Home</li></a>
       <li class="navbar__item"><a href="/boats">Our Boats</li></a>
       <li class="navbar__item"><a href="/boats/new">New Boat</li></a>
       <li class="navbar__item"><a href="/jobs">Job List</li></a>
       <li class="navbar__item"><a href="/jobs/new">New Job</li></a>
       <li class="navbar__item"><%= link_to('Sign Out', destroy_user_session_path, method: :delete) %></li>
-      <% end %>
+    </ul>
+  <% end %>
 
-     <% if !logged_in? %>
-     <li class="navbar__item"><a href="/users/sign_in">Home</li></a>
-     <li class="navbar__item"><a href="/users/sign_in" >Sign In</li></a>
-     <li class="navbar__item"><a href="/users/sign_up" >Sign Up</li></a>
-     <% end %>
-
-  </ul>
+  <% if !logged_in? %>
+    <ul class="navbar__list">
+      <li class="navbar__item"><a href="/users/sign_in">Home</li></a>
+      <li class="navbar__item"><a href="/users/sign_in" >Sign In</li></a>
+      <li class="navbar__item"><a href="/users/sign_up" >Sign Up</li></a>
+    </ul>
+  <% end %>
   </nav>
 
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
      
-   </nav>
-
-    <%= yield %>
-  </body>
+  <%= yield %>
+</body>
 </html>
