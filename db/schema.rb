@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20180302214650) do
 
   create_table "boats", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "max_cont"
     t.string "location"
     t.string "cost"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180302214650) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.index ["name"], name: "index_boats_on_name", unique: true
   end
 
   create_table "boats_jobs", id: false, force: :cascade do |t|
