@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
+    @job.name = @job.name.capitalize
 		if @job.save
 			redirect_to root_path
 		else
