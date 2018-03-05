@@ -1,10 +1,10 @@
 <h1>Jobs#show</h1>
 
-
 <p>Find me in app/views/jobs/show.html.erb</p>
 <h2>Show Individual Jobs</h2>
 
 <div class="job-post">
+
 <div><%= @job.name %></div>
 <div><%= @job.description %></div>
 
@@ -21,10 +21,6 @@
 <div><%= @job.cont_needed %></div>
 <hr>
 
-
-
-
-
 <h2>Assign a boat to this job</h2>
 <!-- filters boats by cost and displays -->
 <% @boats.each do |b| %>
@@ -33,6 +29,19 @@
         <p><%= b.name %></p>
         <%= image_tag b.avatar.url(:medium) %>
         <p>Cost: <%= b.cost %></p>
+        
+       <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
+		<%= hidden_field_tag "id",  b.id %>
+        <%= hidden_field_tag "jobid", @job.id %>
+		<%= f.submit(value = "Assign") %>
+        <% end %>
+
+
     <% end %>
 <% end %>
 
+<%if logged_in? &&  @job.user_id == current_user.id %>
+			<%= link_to "Edit", edit_job_path(@job), method: :get %>
+			<%= link_to "Delete", job_path, method: :delete %>
+		</div>
+	<% end %>
