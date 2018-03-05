@@ -4,10 +4,9 @@
 <div><%= @boat.name %></div>
 <div><%= image_tag @boat.avatar.url(:large) %></div>
 
+<%= link_to 'Edit', edit_boat_path(@boat) %> | 
 <%= link_to "Delete", boat_path, method: :delete %>
-<%= link_to 'Edit', edit_boat_path(@boat) %>
 <hr />
-
 
 <h2>Assign a job to this boat</h2>
 <!-- filters jobs by budget and displays -->
