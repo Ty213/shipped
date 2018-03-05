@@ -12,12 +12,13 @@
         <p><%= j.description %></p>
         <p><%= j.budget %></p>
 
+<%if logged_in? &&  @boat.user_id == current_user.id %>
     <%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |f| %>
-		<%= hidden_field_tag "id",  j.id %>
-        <%= hidden_field_tag "boatid", @boat.id %>
-		<%= f.submit(value = "Assign") %>
+		    <%= hidden_field_tag "id",  j.id %>
+            <%= hidden_field_tag "boatid", @boat.id %>
+		    <%= f.submit(value = "Assign") %>
+            <% end %>
         <% end %>
-
     <% end %>
 <% end %>
 
