@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :jobs
 
   post '/assign/boat' => "boats#assign"
+  post '/assign/job' => "jobs#assign"
 
   devise_for :users
   resources :users, :only => [:show]
