@@ -13,7 +13,7 @@
   <nav class="navbar">
     <% if logged_in? %>
     <ul class="navbar__list">
-      
+      <li class="navbar__item"><%= link_to "Profile", current_user %></a>
       <a href="/"><li class="navbar__item">Home</li></a> 
       <a href="/boats"><li class="navbar__item">Our Boats</li></a>
       <a href="/boats/new"><li class="navbar__item">New Boat</li></a>

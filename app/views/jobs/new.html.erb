@@ -7,13 +7,13 @@
   <p>Description:</p>
   <%= f.text_field(:description) %>
   <p>Containers needed:</p>
-  <%= f.text_field(:cont_needed) %>
+  <%= f.select :cont_needed, ["1", "3", "5", "10", "25", "50"] %>
   <p>Budget:</p>
-  <%= f.text_field(:budget) %>
+  <%= f.select :budget, ["3000", "7650", "12750", "25500", "127500"] %>
   <p>Origin</p>
-    <%= f.text_field(:origin) %>
+    <%= f.select :origin, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
     <p>Destination</p>
-      <%= f.text_field(:destination) %>
+      <%= f.select :destination, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
      <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit("New Job") %>
 <% end %>
