@@ -23,5 +23,13 @@ in
         <p><%= b.name %></p>
         <%= image_tag b.avatar.url(:medium) %>
         <p>Cost: <%= b.cost %></p>
+        
+       <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
+		<%= hidden_field_tag "id",  b.id %>
+        <%= hidden_field_tag "jobid", @job.id %>
+		<%= f.submit(value = "Assign") %>
+        <% end %>
+
+
     <% end %>
 <% end %>
