@@ -37,8 +37,9 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat = Boat.find(params[:id])
+    @user = current_user
     @boat.destroy
-    redirect_to "/boats"
+    redirect_to "/users/#{@user.id}"
   end
 
   def assign
