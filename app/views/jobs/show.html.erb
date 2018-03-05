@@ -12,9 +12,17 @@
 <div>Destination: <%= @job.destination %></div>
 </div>
 
+
+
+<%if logged_in? &&  @job.user_id == current_user.id %>
+        <%= link_to "Edit Job Requirements", edit_job_path(@job), method: :get %> |
+        <%= link_to "Cancel Job", job_path, method: :delete %>
+    </div>
+<% end %>
+
 <hr>
 
-<h3>List of boats available for <%= @job.name %></h3>
+<h3>List of boats assigned to <%= @job.name %></h3>
 <% @job.boats.each do |s| %>
     <div> Boats: <%= s.name %></div>
 <% end %>
@@ -29,27 +37,15 @@
 <% @boats.each do |b| %>
     <% if @job.budget >= b.cost.to_i %>
         <p> Name:<%= b.name %></p>
-
         <%= image_tag b.avatar.url(:thumb) %>
-
-        <p>Cost: <%= b.cost %></p>
+        <div>Cost:<%= b.cost.to_i %></div>  
         <%if logged_in? &&  @job.user_id == current_user.id %>
-       <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
-		<%= hidden_field_tag "id",  b.id %>
-        <%= hidden_field_tag "jobid", @job.id %>
-		<%= f.submit(value = "Assign") %>
+            <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
+        		<%= hidden_field_tag "id",  b.id %>
+                <%= hidden_field_tag "jobid", @job.id %>
+        		<%= f.submit(value = "Assign") %>
+            <% end %>    
         <% end %>
-    <% end %>
-
-
-        <div>Cost:<%= b.cost.to_i %></div>
-        
-        
-    
+    <% end %>  
 <% end %>
 
-<%if logged_in? &&  @job.user_id == current_user.id %>
-		<%= link_to "Edit", edit_job_path(@job), method: :get %>
-		<%= link_to "Delete", job_path, method: :delete %>
-	</div>
-<% end %>
