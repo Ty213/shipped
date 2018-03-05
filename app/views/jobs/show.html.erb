@@ -4,23 +4,18 @@
 <h2>Show Individual Jobs</h2>
 
 <div class="job-post">
-
 <div><%= @job.name %></div>
-<div><%= @job.description %></div>
-
-<div><%= @job.cont_needed %></div>
-<div><%= @job.budget %></div>
-<div><%= @job.origin %></div>
-<div><%= @job.destination %></div>
+<div>Description: <%= @job.description %></div>
+<div>Containers Needed: <%= @job.cont_needed %></div>
+<div>Budget: $<%= @job.budget %></div>
+<div>Origin: <%= @job.origin %></div>
+<div>Destination: <%= @job.destination %></div>
 </div>
 
 
 <hr>
 
-<div><%= @job.budget %></div>
-<div><%= @job.cont_needed %></div>
-
-<h3>List of boats for <%= @job.name %></h3>
+<h3>List of boats available for <%= @job.name %></h3>
 <% @job.boats.each do |s| %>
     <div> Boats: <%= s.name %></div>
 <% end %>
@@ -35,8 +30,9 @@
 <% @boats.each do |b| %>
     <% if @job.budget >= b.cost.to_i %>
         <p> Name:<%= b.name %></p>
-        <%= image_tag b.avatar.url(:medium) %>
-<<<<<<< HEAD
+
+        <%= image_tag b.avatar.url(:thumb) %>
+
         <p>Cost: <%= b.cost %></p>
         <%if logged_in? &&  @job.user_id == current_user.id %>
        <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
@@ -46,17 +42,11 @@
         <% end %>
     <% end %>
 
-=======
+
         <div>Cost:<%= b.cost.to_i %></div>
         
         
-        <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
-		  <%= hidden_field_tag "id",  b.id %>
-          <%= hidden_field_tag "jobid", @job.id %>
-		  <%= f.submit(value = "Assign") %>
-        <% end %>
->>>>>>> 62b54648585f0f3cbc0db3ba74a9af0c4feca990
-    <% end %>
+    
 <% end %>
 
 <%if logged_in? &&  @job.user_id == current_user.id %>
