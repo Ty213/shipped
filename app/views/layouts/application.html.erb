@@ -19,7 +19,7 @@
   <% if logged_in? %>
   <nav class="navbar">
     <ul class="navbar_list">
-      <li class="navbar_item"><%= link_to "Profile", current_user %></a>
+      <li class="navbar_item"><%= link_to "Profile", current_user %></li>
       <li class="navbar_item"><a href="/boats">Our Boats</li></a>
       <li class="navbar_item"><a href="/boats/new">New Boat</li></a>
       <li class="navbar_item"><a href="/jobs">Job List</li></a>
@@ -37,12 +37,15 @@
   <% end %>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
       
     <%= yield %>
-    <p class = 'contact'><strong>Contact Us: </strong><a href="mailto:contact@weshippdit.com">  contact@weshippdit.com</p>
+
+  <div class="footer"><strong>Contact Us:   </strong><a href="mailto:contact@weshippdit.com">contact@weshippdit.com</div></p>
+  
   </body>
+
 
 
 </html>
