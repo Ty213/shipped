@@ -11,10 +11,10 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.name = @boat.name.capitalize
     if @boat.save
-      flash[:notice] = 'Your boat was created successfully'
+      flash[:notice] = 'Your boat was created successfully.'
       redirect_to '/boats/'
     else
-      flash[:alert] = 'try again'
+      flash[:alert] = 'Sorry, please try again.  That boat name is taken in our fleet already.'
       redirect_to '/boats/new'
     end
   end

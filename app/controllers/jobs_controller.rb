@@ -2,9 +2,11 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.name = @job.name.capitalize
-		if @job.save
+    if @job.save
+      flash[:notice] = 'Your job was created successfully.'
 			redirect_to '/jobs'
 		else
+      flash[:alert] = 'Sorry, please try again.  Your job must have a unique name and cost must be greater than $100.'
 			render new_job_path
 		end
   end

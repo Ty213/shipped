@@ -22,7 +22,6 @@
     <% end %>
 <% end %>
 
-
 <%if logged_in? &&  @boat.user_id == current_user.id %>
 			<%= link_to "Edit", edit_boat_path(@boat), method: :get %> |
 			<%= link_to "Delete", boat_path, method: :delete %>
