@@ -1,9 +1,12 @@
 class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
+    @job.name = @job.name.capitalize
 		if @job.save
-			redirect_to "/jobs"
+      flash[:notice] = 'Your job was created successfully.'
+			redirect_to root_path
 		else
+      flash[:alert] = 'Sorry, please try again.  Your job must have a unique name and cost must be greater than $100.'
 			render new_job_path
 		end
   end
@@ -36,6 +39,13 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to "/jobs"
+  end
+
+  def assign
+    @job = Job.find(params[:id])
+		@boat = Boat.find(params[:boatid])
+		@job.boats << @boat
+    redirect_to "/boats/#{@boat.id}"
   end
 
   def job_params
