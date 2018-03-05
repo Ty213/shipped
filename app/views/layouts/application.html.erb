@@ -14,34 +14,35 @@
 
 <body>
   <h1 id="headline">SHIPPD</h1>
-  
-  
-    <% if logged_in? %>
-      <ul class="navbar__list">
-        <li class="navbar__item"><%= link_to "Profile", current_user %></a>
-        <li class="navbar__item"><a href="/boats">Our Boats</li></a>
-        <li class="navbar__item"><a href="/boats/new">New Boat</li></a>
-        <li class="navbar__item"><a href="/jobs">Job List</li></a>
-        <li class="navbar__item"><a href="/jobs/new">New Job</li></a>
-        <li class="navbar__item"><%= link_to('Sign Out', destroy_user_session_path, method: :delete) %></li>
-      </ul>
-    <% end %>
 
-    <% if !logged_in? %>
-      <ul class="navbar__list">
-        <li class="navbar__item"><a href="/users/sign_in">Home</li></a>
-        <li class="navbar__item"><a href="/users/sign_in" >Sign In</li></a>
-        <li class="navbar__item"><a href="/users/sign_up" >Sign Up</li></a>
-      </ul>
-    <% end %>
+
+  <% if logged_in? %>
+  <nav class="navbar">
+    <ul class="navbar_list">
+      <li class="navbar_item"><%= link_to "Profile", current_user %></a>
+      <li class="navbar_item"><a href="/boats">Our Boats</li></a>
+      <li class="navbar_item"><a href="/boats/new">New Boat</li></a>
+      <li class="navbar_item"><a href="/jobs">Job List</li></a>
+      <li class="navbar_item"><a href="/jobs/new">New Job</li></a>
+      <li class="navbar_item"><%= link_to('Sign Out', destroy_user_session_path, method: :delete) %></li>
+    </ul>
+  <% end %>
+
+  <% if !logged_in? %>
+    <ul class="navbar_list">
+      <li class="navbar_item"><a href="/users/sign_in">Home</li></a>
+      <li class="navbar_item"><a href="/users/sign_in" >Sign In</li></a>
+      <li class="navbar_item"><a href="/users/sign_up" >Sign Up</li></a>
+    </ul>
+  <% end %>
   </nav>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-     
+      
     <%= yield %>
-    <p><strong>Reach Us:</strong>blah blah  
+    <p class = 'contact'><strong>Contact Us: </strong><a href="mailto:contact@weshippdit.com">  contact@weshippdit.com</p>
+  </body>
 
-</body>
 
 </html>
