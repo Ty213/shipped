@@ -27,5 +27,10 @@ in
 <% end %>
 
 
-<h2>Edit this Job</h2>
-<%= link_to 'Edit', edit_job_path(@job) %>
+<%if logged_in? &&  @job.user_id == current_user.id %>
+			<%= link_to "Edit", edit_job_path(@job), method: :get %>
+			<%= link_to "Delete", job_path, method: :delete %>
+		</div>
+	<% end %>
+
+
