@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
 		if @job.save
-			redirect_to root_path
+			redirect_to "/jobs"
 		else
 			render new_job_path
 		end

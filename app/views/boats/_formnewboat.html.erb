@@ -6,6 +6,7 @@
 	<%= f.select :location, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
 	<h4> Containers Available </h4>
 	<%= f.select :max_cont, ["1", "3", "5", "10", "25", "50"] %>
+	<h4>Cost to use boat:</h4>
 	<%= f.select :cost, ["3000", "7650", "12750", "25500", "127500"] %>
 	<div>Add Image:<%= f.file_field :avatar %> </div>
 	<%= f.submit %>

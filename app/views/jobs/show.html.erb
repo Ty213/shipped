@@ -7,32 +7,39 @@
 <div><%= @job.description %></div>
 <div><%= @job.budget %></div>
 <div><%= @job.cont_needed %></div>
+
+<h3>List of boats for <%= @job.name %></h3>
+<% @job.boats.each do |s| %>
+    <div> Boats: <%= s.name %></div>
+<% end %>
+
+
 <hr>
+
+
 
 <h2>Assign a boat to this job</h2>
 <!-- filters boats by cost and displays -->
 <% @boats.each do |b| %>
     <% if @job.budget >= b.cost.to_i %>
-        <%= b.cost.to_i %>
-        <p><%= b.name %></p>
+        <p> Name:<%= b.name %></p>
         <%= image_tag b.avatar.url(:medium) %>
-        <p>Cost: <%= b.cost %></p>
+        <div>Cost:<%= b.cost.to_i %></div>
         
-       <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
-		<%= hidden_field_tag "id",  b.id %>
-        <%= hidden_field_tag "jobid", @job.id %>
-		<%= f.submit(value = "Assign") %>
+        
+        <%= form_for :boat, url: {action: 'assign', controller: 'boats'} do |f| %>
+		  <%= hidden_field_tag "id",  b.id %>
+          <%= hidden_field_tag "jobid", @job.id %>
+		  <%= f.submit(value = "Assign") %>
         <% end %>
-
-
     <% end %>
 <% end %>
 
 
 <%if logged_in? &&  @job.user_id == current_user.id %>
-			<%= link_to "Edit", edit_job_path(@job), method: :get %>
-			<%= link_to "Delete", job_path, method: :delete %>
-		</div>
-	<% end %>
+		<%= link_to "Edit", edit_job_path(@job), method: :get %>
+		<%= link_to "Delete", job_path, method: :delete %>
+	</div>
+<% end %>
 
 
