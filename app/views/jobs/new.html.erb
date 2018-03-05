@@ -1,19 +1,5 @@
 <h1>Jobs#new</h1>
 <p>Find me in app/views/jobs/new.html.erb</p>
 
-<%= form_for @job do |f| %>
-<p>Name:</p>
-  <%= f.text_field(:name) %>
-  <p>Description:</p>
-  <%= f.text_field(:description) %>
-  <p>Containers needed:</p>
-  <%= f.select :cont_needed, ["1", "3", "5", "10", "25", "50"] %>
-  <p>Budget:</p>
-  <%= f.select :budget, ["3000", "7650", "12750", "25500", "127500"] %>
-  <p>Origin</p>
-    <%= f.select :origin, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
-    <p>Destination</p>
-      <%= f.select :destination, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
-     <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit("New Job") %>
-<% end %>
+
+<%= render "formnewjob" %>

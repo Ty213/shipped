@@ -9,11 +9,12 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.new(boat_params)
+    @boat.name = @boat.name.capitalize
     if @boat.save
-      flash[:notice] = 'Your boat was created successfully'
+      flash[:notice] = 'Your boat was created successfully.'
       redirect_to '/boats/'
     else
-      flash[:alert] = 'try again'
+      flash[:alert] = 'Sorry, please try again.  That boat name is taken in our fleet already.'
       redirect_to '/boats/new'
     end
   end
@@ -38,6 +39,13 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
     @boat.destroy
     redirect_to "/boats"
+  end
+
+  def assign
+    @boat = Boat.find(params[:id])
+		@job = Job.find(params[:jobid])
+		@boat.jobs << @job
+    redirect_to "/jobs/#{@job.id}"
   end
 
   private

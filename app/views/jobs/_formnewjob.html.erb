@@ -1,0 +1,16 @@
+<%= form_for @job do |f| %>
+<h4>Name:</h4>
+  <%= f.text_field(:name) %>
+  <h4>Description:</h4>
+  <%= f.text_field(:description) %>
+  <h4>Containers needed:</h4>
+  <%= f.select :cont_needed, ["1", "3", "5", "10", "25", "50"] %>
+  <h4>Budget:</h4>
+  $<%= f.text_field :budget %>
+  <h4>Origin</h4>
+    <%= f.select :origin, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
+    <h4>Destination</h4>
+      <%= f.select :destination, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
+     <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit("New Job") %>
+<% end %>
