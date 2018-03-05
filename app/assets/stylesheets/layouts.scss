@@ -1,5 +1,7 @@
 body{
 	background-color:white;
+	font-family: 'Monda', sans-serif;
+	
 }
 #headline{
 	font-family: 'Russo One', sans-serif;
@@ -8,13 +10,16 @@ body{
 	text-shadow:5px 5px black;
 	color:orange;
 	box-shadow: 5px 5px 5px 5px black;
-	background-image:url('shipping.jpg')
+	background-image:url('shipping.jpg');
+	padding:40px;
+	margin-top:5px;
 }
 .navbar{
 	display: inline;
 	margin: 10px auto;
 	box-shadow:6px 6px 6px 6px white;
 	padding: 20px;
+    font-family: 'Monda', sans-serif;
     
     
 }
@@ -28,7 +33,7 @@ ul {
     padding: 0;
     text-align:center;
     position:absolute;
-    top:28%;
+    top:32%;
     left:25%;
    
     box-shadow:5px 5px 5px 5px gray;
