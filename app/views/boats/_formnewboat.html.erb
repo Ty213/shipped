@@ -2,11 +2,12 @@
 	<h4> Boat Name </h4>
 	<%= f.text_field :name %>
 	<h4> Location </h4>
-	<div><%= f.hidden_field :user_id, :value => current_user.id %></div>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
 	<%= f.select :location, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
 	<h4> Containers Available </h4>
 	<%= f.select :max_cont, ["1", "3", "5", "10", "25", "50"] %>
-	<%= f.select :cost, ["3000", "7650", "12750", "25500", "127500"] %>
-	<div>Add Image:<%= f.file_field :avatar %> </div>
+	<h4> Cost </h4>
+	$<%= f.text_field :cost %>
+	<h4>Add Image:<%= f.file_field :avatar %></h4>
 	<%= f.submit %>
 <% end %>
