@@ -2,6 +2,8 @@
 
 
 <% @boats.each do |b|  %>
+<div class="boat">
 	<div><a href='/boats/<%= b.id %>'><%= b.name %></a></div>
 	<div><%= image_tag b.avatar.url(:large) %></div>
+</div>
 <% end %>
