@@ -1,13 +1,13 @@
 <%= form_for @boat do |f| %>
-	<h4> Boat Name </h4>
-	<%= f.text_field :name %>
-	<h4> Location </h4>
+	<h4><u>Boat Name</u></h4>
+	<%= f.text_field :name, :class => "name" %>
+	<h4><u>Location</u>	</h4>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.select :location, ["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"	] %>
-	<h4> Containers Available </h4>
-	<%= f.select :max_cont, ["1", "3", "5", "10", "25", "50"] %>
-	<h4> Cost </h4>
-	$<%= f.text_field :cost %>
-	<h4>Add Image:<%= f.file_field :avatar %></h4>
-	<%= f.submit %>
+	<%= f.select "location", options_for_select(["Los Angeles", "Portland", "Seattle", "New York", "Miami", "Philadelphia", "Boston", "Baltimore", "Charlseston", "Norfolk", "Houston", "New Orleans", "Detroit", "Dallas", "Columbus", "Charlotte", "Atlanta"]), {}, {required: 'true', autofocus: 'true', class: 'location'} %>
+	<h4><u>Containers Available</u></h4>
+	<%= f.select "max_cont", options_for_select(["1", "3", "5", "10", "25", "50"]), {}, {required: 'true', autofocus: 'true', class: 'max_cont'} %>
+	<h4><u>Cost</u></h4>
+	$<%= f.text_field :cost, :class => "cost" %>
+	<h4><u>Add Image:</u></h4><%= f.file_field :avatar, :class => "add_image" %></br>
+	<%= f.submit :class => "submit" %>
 <% end %>
